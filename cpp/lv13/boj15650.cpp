@@ -2,10 +2,10 @@
 using namespace std;
 
 int n, m;
-int arr[9] = {0, };
+int arr[9] = { 0, };
 bool visited[9] = { false, };
 
-void nCm(int num)
+void nCm(int num, int idx)
 {
 	if (num == m)
 	{
@@ -14,13 +14,13 @@ void nCm(int num)
 		cout << "\n";
 		return;
 	}
-	for (int i = 1; i <= n; i++)
+	for (int i = idx; i <= n; i++)
 	{
 		if (!visited[i])
 		{
 			visited[i] = true;
 			arr[num] = i;
-			nCm(num+1);
+			nCm(num + 1, i + 1);
 			visited[i] = false;
 		}
 	}
@@ -29,6 +29,6 @@ void nCm(int num)
 int main()
 {
 	cin >> n >> m;
-	nCm(0);
+	nCm(0, 1);
 	return 0;
 }

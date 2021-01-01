@@ -5,7 +5,7 @@ int n, m;
 int arr[9] = { 0, };
 bool visited[9] = { false, };
 
-void nCm(int num, int idx)
+void nNm(int num)
 {
 	if (num == m)
 	{
@@ -14,13 +14,13 @@ void nCm(int num, int idx)
 		cout << "\n";
 		return;
 	}
-	for (int i = idx; i <= n; i++)
+	for (int i = 1; i <= n; i++)
 	{
 		if (!visited[i])
 		{
 			visited[i] = true;
 			arr[num] = i;
-			nCm(num + 1, i+1);
+			nNm(num + 1);
 			visited[i] = false;
 		}
 	}
@@ -29,6 +29,6 @@ void nCm(int num, int idx)
 int main()
 {
 	cin >> n >> m;
-	nCm(0, 1);
+	nNm(0);
 	return 0;
 }
