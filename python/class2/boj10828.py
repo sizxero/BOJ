@@ -1,0 +1,30 @@
+import sys
+n = int(input())
+
+stack = []
+
+for _ in range(n):
+    command = sys.stdin.readline().rstrip().split()
+    operator = command[0]
+    if len(command) == 2:
+        operand = command[1]
+    
+    if operator == 'push':
+        stack.append(operand)
+    elif operator == 'pop':
+        if len(stack) == 0:
+            print(-1)
+        else:
+            print(stack.pop())
+    elif operator == 'size':
+        print(len(stack))
+    elif operator == 'empty':
+        if len(stack) == 0:
+            print(1)
+        else:
+            print(0)
+    elif operator == 'top':
+        if len(stack) == 0:
+            print(-1)
+        else:
+            print(stack[-1])
