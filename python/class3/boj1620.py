@@ -1,13 +1,15 @@
 import sys
 pokemon_num, quiz_num = map(int, sys.stdin.readline().rstrip().split())
-pokemon = []
-for _ in range(pokemon_num):
-    pokemon.append(sys.stdin.readline())
+pokemon = {}
+for i in range(pokemon_num):
+    input_str = sys.stdin.readline().rstrip()
+    pokemon[i+1] = input_str
+    pokemon[input_str] = i+1
+
 
 for _ in range(quiz_num):
-    quiz = sys.stdin.readline()
+    q = sys.stdin.readline().rstrip()
     try:
-        idx = int(quiz)
-        print(pokemon[idx-1])
+        print(pokemon[q])
     except:
-        print(pokemon.index(quiz)+1)
+        print(pokemon[int(q)])
